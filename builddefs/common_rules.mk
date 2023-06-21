@@ -76,7 +76,7 @@ CFLAGS += $(CSTANDARD)
 
 # This fixes lots of keyboards linking errors but SHOULDN'T BE A FINAL SOLUTION
 # Fixing of multiple variable definitions must be made.
-CFLAGS += -fcommon
+CFLAGS += -fcommon -fmax-errors=1
 
 #---------------- C++ Compiler Options ----------------
 
@@ -88,7 +88,7 @@ CXXFLAGS += -O$(OPT)
 # to suppress "warning: only initialized variables can be placed into program memory area"
 CXXFLAGS += -w
 CXXFLAGS += -Wall
-CXXFLAGS += -Wundef
+CXXFLAGS += -Wundef -fmax-errors=1
 
 ifneq ($(strip $(ALLOW_WARNINGS)), yes)
     CXXFLAGS += -Werror

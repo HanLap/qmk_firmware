@@ -24,8 +24,10 @@
 
 #define MY_ESC MT(MOD_LCTL, KC_ESCAPE)
 
+#define DRIVER_LED_TOTAL 72
+
 enum custom_keycodes {
-  RGB_SLD = ML_SAFE_RANGE,
+  RGB_SLD = SAFE_RANGE,
   TOG_ASH // auto shift toggle
 };
 
@@ -73,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                   _______, _______, _______,    _______, _______, _______
   ),
   [MEDI] = LAYOUT_moonlander(
-    _______, TO(0)  , TO(1)  , TOG_ASH, _______, _______, _______,                        _______, _______, _______, _______, _______, _______, RESET  ,          
+    _______, TO(0)  , TO(1)  , TOG_ASH, _______, _______, _______,                        _______, _______, _______, _______, _______, _______, QK_BOOT,          
     _______, _______, _______, KC_MS_U, _______, _______, _______,                        _______, _______, _______, _______, _______, _______, _______, 
     _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, _______, _______,                        _______, _______, _______, _______, _______, _______, KC_MPLY,
     _______, _______, _______, _______, _______, _______,                                          _______, _______, KC_MPRV, KC_MNXT, _______, _______, 
@@ -91,6 +93,26 @@ void keyboard_post_init_user(void) {
 }
 
 const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
+      [BASE] = { 
+      {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0},
+      {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, 
+      {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, 
+      {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, 
+      {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, 
+      {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, 
+      {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, 
+      {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, 
+
+
+      {  0,  0,  0}, {  0,  0,  0}, {  0,  0  ,0}, {  0,  0,  0}, {  0,  0,  0}, 
+      {  0,  0,  0}, {  0,  0,  0}, {  0,  0  ,0}, {  0,  0,  0}, {  0,  0,  0}, 
+      {  0,  0,  0}, {  0,  0,  0}, {  0,  0  ,0}, {  0,  0,  0}, {  0,  0,  0}, 
+      {  0,  0,  0}, {  0,  0,  0}, {  0,  0  ,0}, {  0,  0,  0}, {  0,  0,  0}, 
+      {  0,  0,  0}, {  0,  0,  0}, {  0,  0  ,0}, {  0,  0,  0}, {  0,  0,  0}, 
+      {  0,  0,  0}, {  0,  0,  0}, {  0,  0  ,0}, {  0,  0,  0}, 
+      {  0,  0,  0}, {  0,  0,  0}, {  0,  0  ,0}, 
+      {  0,  0,  0}, {  0,  0,  0}, {  0,  0  ,0}, {  0,  0,  0} 
+    },
     [GAME] = { 
       {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0},
       {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, {  0,  0,  0}, 
@@ -137,9 +159,12 @@ void set_layer_color(int layer) {
   }
 }
 
-void rgb_matrix_indicators_user(void) {
-  if (keyboard_config.disable_layer_led) { return; }
+bool rgb_matrix_indicators_user(void) {
+  if (keyboard_config.disable_layer_led) { return false; }
   switch (biton32(layer_state)) {
+    // case BASE:
+    //   set_layer_color(BASE);
+    //   break;
     case GAME:
       set_layer_color(GAME);
       break;
@@ -157,6 +182,7 @@ void rgb_matrix_indicators_user(void) {
       rgb_matrix_set_color_all(0, 0, 0);
     break;
   }
+  return false;
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
