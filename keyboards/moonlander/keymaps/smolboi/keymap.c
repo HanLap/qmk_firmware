@@ -6,7 +6,7 @@
 
 #define MOON_LED_LEVEL LED_LEVEL
 
-
+#define DRIVER_LED_TOTAL 72
 
 #define MY_AGUI MT(MOD_LGUI, KC_A)
 #define MY_SALT MT(MOD_LALT, KC_S)
@@ -18,11 +18,8 @@
 #define MY_LALT MT(MOD_LALT, KC_L)
 #define MY_CGUI MT(MOD_RGUI, KC_SCLN)
 
-
-
 #define MY_ESC MT(MOD_LCTL, KC_ESCAPE)
 
-#define DRIVER_LED_TOTAL 72
 
 enum custom_keycodes {
   RGB_SLD = SAFE_RANGE,
@@ -50,9 +47,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [SYMB] = LAYOUT_moonlander(
     _______, _______, _______, _______, _______, _______, _______,                        _______, _______, _______, _______, _______, _______, _______,         
     _______, KC_EXLM, KC_AT  , KC_LCBR, KC_RCBR, KC_PIPE, _______,                        _______, KC_EQL , KC_7   , KC_8   , KC_9   , KC_ASTR, _______,         
-    _______, KC_HASH, KC_DLR , KC_LPRN, KC_RPRN, KC_GRV , _______,                        _______, KC_MINS, KC_4   , KC_5   , KC_6   , KC_PLUS, WEBUSB_PAIR,    
+    _______, KC_HASH, KC_DLR , KC_LPRN, KC_RPRN, KC_GRV , _______,                        _______, KC_MINS, KC_4   , KC_5   , KC_6   , KC_PLUS, _______,    
     _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_TILD,                                          KC_UNDS, KC_1   , KC_2   , KC_3   , KC_BSLS, _______, 
-    _______, _______, _______, _______, _______,           _______,                      RGB_TOG,           KC_0   , _______, _______, _______, _______, 
+    _______, _______, _______, _______, _______,           _______,                      _______,           KC_0   , _______, _______, _______, _______, 
                                                   _______, _______, _______,    _______, _______, _______
   ),
   [SYM2] = LAYOUT_moonlander(
@@ -60,8 +57,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  , _______,                        _______, KC_F6  , KC_F7  , KC_F8  , KC_F9  , KC_F10 , KC_F11,  
     _______, KC_TAB , _______, _______, _______, _______, _______,                        _______, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______, KC_F12,
     _______, _______, _______, _______, _______, _______,                                          KC_HOME, KC_PGDN, KC_PGUP, KC_END , _______, _______, 
-    _______, _______, _______, _______, _______,           RGB_TOG,                      _______,           _______, _______, _______, _______, _______, 
-                                                  KC_ESC , RGB_MOD, _______,    _______, _______, _______
+    _______, _______, _______, _______, _______,           _______,                      _______,           _______, _______, _______, _______, _______, 
+                                                  KC_ESC , _______, _______,    _______, _______, _______
   ),
   [MEDI] = LAYOUT_moonlander(
     _______, _______, _______, _______, _______, _______, _______,                        _______, _______, _______, _______, _______, _______, _______,          
