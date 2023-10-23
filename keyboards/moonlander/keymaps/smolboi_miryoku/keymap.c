@@ -76,8 +76,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [MEDI] = LAYOUT_miryoku(
     _______, _______, _______, _______, _______,        _______, _______, _______, _______, QK_BOOT,      
-    KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, _______,        _______, _______, _______, _______, _______,       
-    _______, _______, _______, _______, _______,        _______, _______, _______, _______, _______,      
+    KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, _______,        _______, RGB_TOG, _______, _______, _______,       
+    _______, _______, _______, _______, _______,        _______, RGB_MOD, _______, _______, _______,      
                       _______, _______, _______,        _______, _______, _______ 
   ),
   [NUM ] = LAYOUT_miryoku(
@@ -94,8 +94,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [FUN ] = LAYOUT_miryoku(
     KC_F12 , KC_F7  , KC_F8  , KC_F9  , KC_PSCR,        _______, _______, _______, _______, _______,      
-    KC_F11 , KC_F4  , KC_F5  , KC_F6  , _______,        _______, KC_RCTL, KC_RSFT, KC_LALT, KC_RGUI,       
-    KC_F10 , KC_F1  , KC_F2  , KC_F3  , _______,        _______, _______, _______, _______, _______,      
+    KC_F11 , KC_F4  , KC_F5  , KC_F6  , KC_RALT,        _______, KC_RCTL, KC_RSFT, KC_LALT, KC_RGUI,       
+    KC_F10 , KC_F1  , KC_F2  , KC_F3  , KC_RALT,        _______, _______, _______, _______, _______,      
                       KC_ESC , KC_SPC , KC_TAB ,        _______, _______, _______ 
   )
 };
@@ -159,12 +159,12 @@ bool rgb_matrix_indicators_user(void) {
     // case BASE:
       // set_layer_color(BASE);
       // break;
-    case SYMB:
-      set_layer_color(SYMB);
-      break;
-    case NAV:
-      rgb_matrix_set_color_all(200, 200,  255);
-      break;
+    // case SYMB:
+    //   set_layer_color(SYMB);
+    //   break;
+    // case NAV:
+    //   rgb_matrix_set_color_all(200, 200,  255);
+    //   break;
     case MEDI:
       set_layer_color(MEDI);
       break;
