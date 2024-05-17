@@ -61,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [MOUS] = LAYOUT_miryoku(
     _______, _______, _______, _______, _______,        KC_CUT , KC_COPY, KC_PSTE, KC_UNDO, _______,      
     KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, _______,        KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______,       
-    _______, _______, _______, _______, _______,        KC_WH_L, KC_WH_D, KC_MS_U, KC_MS_R, KC_INS ,      
+    _______, _______, _______, _______, _______,        KC_WH_L, KC_WH_D, KC_WH_U, KC_MS_R, KC_INS ,      
                       _______, _______, _______,        KC_BTN2, KC_BTN1, KC_BTN3 
   ),
   [BUTN] = LAYOUT_miryoku(
